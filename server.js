@@ -6,6 +6,10 @@ const mongoose = require('mongoose');
 // Initialize Express
 const app = express();
 
+mongoose.connect(process.env.MONGODB_URI)
+  .then(() => console.log('Connected to MongoDB'))
+  .catch(err => console.error('MongoDB connection error:', err));
+
 const hostname = process.env.HOST;
 const port = process.env.PORT;
 
